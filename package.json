@@ -1,0 +1,17 @@
+{
+  "name": "fluid-agent-demo",
+  "version": "1.0.0",
+  "description": "Full working demo: Fluid Wallet API + FADP/1.0 + fluid-ticker + agent skills — for developers",
+  "scripts": {
+    "server": "node server/index.js",
+    "agent":  "node agent/index.js",
+    "setup":  "node scripts/setup.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv":  "^16.0.3"
+  },
+  "keywords": ["fadp", "fluid-wallet", "crypto", "ai-agent", "http-402", "web3", "base"],
+  "license": "MIT",
+  "author": "Fluid Wallet <dev@fluidnative.com> (https://fluidnative.com)"
+}
