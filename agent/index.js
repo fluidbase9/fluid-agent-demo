@@ -161,10 +161,24 @@ const MENU = [
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
+  const TQ = "\x1b[38;2;72;209;204m";
   nl();
   hr("═");
-  console.log(`${C.bold}${C.cyan}  🤖  Fluid Agent Demo${C.reset}`);
-  console.log(`  ${C.gray}FADP/1.0 · fluid-ticker · Fluid Wallet API · Base mainnet${C.reset}`);
+  nl();
+  console.log(`  \x1b[1m${TQ}█████ █     █   █ ███ ████ \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}████  █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █████ █████ ███ ████ \x1b[0m`);
+  nl();
+  console.log(`  \x1b[1m${TQ}█     █  ███  █     █     █████ █████\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█  █  █ █   █ █     █     █       █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█ █ █ █ █████ █     █     ████    █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}██   ██ █   █ █     █     █       █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █ █   █ █████ █████ █████   █  \x1b[0m`);
+  nl();
+  console.log(`  \x1b[2mFADP Developer CLI  ·  fluidnative.com/fadp\x1b[0m`);
+  nl();
   hr("═");
   nl();
 
