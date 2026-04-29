@@ -319,8 +319,20 @@ app.get("/api/balance", fadpGate("0.001", "Wallet balance from Fluid Wallet"), a
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`\n${C.cyan}  🌊  Fluid Agent Demo — API Server${C.reset}`);
-  console.log(`  ${C.gray}FADP/1.0 · fluid-ticker · Base mainnet${C.reset}\n`);
+  const TQ = "\x1b[38;2;72;209;204m";
+  console.log();
+  console.log(`  \x1b[1m${TQ}█████ █     █   █ ███ ████ \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}████  █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █     █   █  █  █   █\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █████ █████ ███ ████ \x1b[0m`);
+  console.log();
+  console.log(`  \x1b[1m${TQ}█     █  ███  █     █     █████ █████\x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█  █  █ █   █ █     █     █       █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█ █ █ █ █████ █     █     ████    █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}██   ██ █   █ █     █     █       █  \x1b[0m`);
+  console.log(`  \x1b[1m${TQ}█     █ █   █ █████ █████ █████   █  \x1b[0m`);
+  console.log(`\n  \x1b[2mFADP/1.0 · fluid-ticker · Base mainnet\x1b[0m\n`);
   console.log(`  ${C.green}▶${C.reset}  http://localhost:${PORT}\n`);
   console.log(`  ${C.gray}Gated endpoints (require FADP payment):${C.reset}`);
   console.log(`  ${C.yellow}⊙${C.reset}  /api/price/:coin      0.001 USDC`);

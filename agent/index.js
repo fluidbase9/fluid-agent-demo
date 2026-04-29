@@ -159,6 +159,16 @@ const MENU = [
   { key: "q", label: "Quit",                         cost: "" },
 ];
 
+// ─── Fetch live wallet balance from Fluid backend ─────────────────────────────
+async function fetchWalletBalance() {
+  if (!AGENT_KEY) return null;
+  try {
+    const r = await GET(`${FLUID_API}/v1/agents/balance`, { "X-Agent-Key": AGENT_KEY });
+    if (r.status === 200 && r.body) return r.body;
+  } catch { /* offline */ }
+  return null;
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
   const TQ = "\x1b[38;2;72;209;204m";
@@ -177,7 +187,7 @@ async function main() {
   console.log(`  \x1b[1m${TQ}██   ██ █   █ █     █     █       █  \x1b[0m`);
   console.log(`  \x1b[1m${TQ}█     █ █   █ █████ █████ █████   █  \x1b[0m`);
   nl();
-  console.log(`  \x1b[2mFADP Developer CLI  ·  fluidnative.com/fadp\x1b[0m`);
+  console.log(`  \x1b[2mFADP Agent Demo  ·  fluidnative.com/fadp\x1b[0m`);
   nl();
   hr("═");
   nl();
@@ -187,6 +197,25 @@ async function main() {
   console.log(`  ${AGENT_KEY ? C.green+"✓" : C.gray+"○"}${C.reset}  FLUID_AGENT_KEY   ${AGENT_KEY ? C.green+"(live payments)" : C.gray+"not set — demo mode"}${C.reset}`);
   console.log(`  ${(FLDP_NAME && FLDP_KEY) ? C.green+"✓" : C.gray+"○"}${C.reset}  FLDP EC Key       ${(FLDP_NAME && FLDP_KEY) ? C.green+"(signing enabled)" : C.gray+"not set"}${C.reset}`);
   nl();
+
+  // Live wallet balance from Fluid backend
+  if (AGENT_KEY) {
+    console.log(`  ${C.bold}Wallet Balance${C.reset}  ${C.dim}(Base mainnet · live from Fluid Wallet)${C.reset}`);
+    const bal = await fetchWalletBalance();
+    if (bal) {
+      const usdc = parseFloat(bal.usdc || 0);
+      const eth  = parseFloat(bal.eth  || 0);
+      const usdt = parseFloat(bal.usdt || 0);
+      const usdcColor = usdc >= 0.1 ? C.green : usdc > 0 ? C.yellow : C.red;
+      console.log(`  ${C.cyan}USDC${C.reset}  ${usdcColor}${C.bold}${usdc.toFixed(2)}${C.reset}  ${usdc < 0.01 ? C.red+"⚠  Low balance — top up USDC on Base to pay"+C.reset : ""}`);
+      console.log(`  ${C.cyan}ETH ${C.reset}  ${C.white}${eth.toFixed(6)}${C.reset}`);
+      if (usdt > 0) console.log(`  ${C.cyan}USDT${C.reset}  ${C.white}${usdt.toFixed(2)}${C.reset}`);
+      if (bal.address) console.log(`  ${C.cyan}Addr${C.reset}  ${C.dim}${bal.address}${C.reset}`);
+    } else {
+      console.log(`  ${C.yellow}⚠${C.reset}  Could not reach Fluid backend — check your connection`);
+    }
+    nl();
+  }
 
   // Server check
   const health = await GET(`${SERVER}/health`).catch(() => null);
