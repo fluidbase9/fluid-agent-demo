@@ -44,6 +44,11 @@ node server/index.js &
 node agent/index.js
 ```
 
+> **Already ran this before?** Clear the npx cache first to get the latest CLI version:
+> ```bash
+> rm -rf ~/.npm/_npx && npx @fluidwallet/fadp-cli@latest
+> ```
+
 > **Tip:** Open a new terminal after step 4 so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is active.
 
 ## Endpoints (all FADP-gated)
