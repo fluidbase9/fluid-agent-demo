@@ -37,13 +37,14 @@ npm install
 #    → opens VS Code automatically
 npx @fluidwallet/fadp-cli@latest
 
-# 5. Open a new terminal (so ~/.zshrc is sourced and FLUID_AGENT_KEY is live)
-#    then start the FADP-gated API server
-node server/index.js
+# 5. Start the FADP-gated API server (runs in background)
+node server/index.js &
 
-# 6. Open another terminal tab and run the interactive paying agent
+# 6. Run the interactive paying agent
 node agent/index.js
 ```
+
+> **Tip:** Open a new terminal after step 4 so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is active.
 
 ## Endpoints (all FADP-gated)
 
