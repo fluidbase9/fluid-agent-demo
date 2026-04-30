@@ -17,9 +17,11 @@ Clone it, run the CLI, and see a real AI agent auto-pay for live crypto data.
 
 ## Quick start
 
-**Setup — one command**
 ```bash
-git clone https://github.com/fluidbase9/fluid-agent-demo && cd fluid-agent-demo && npm install && npx @fluidwallet/fadp-cli@latest
+git clone https://github.com/fluidbase9/fluid-agent-demo
+cd fluid-agent-demo
+npm install
+npx @fluidwallet/fadp-cli@latest
 ```
 
 The CLI will walk you through:
