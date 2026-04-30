@@ -46,6 +46,27 @@ node agent/index.js
 
 > **Tip:** Open a new terminal after step 4 so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is active.
 
+---
+
+## After setup — run your scaffolded project
+
+The CLI creates a `fadp-sample/` folder and opens it in VS Code automatically. Once setup is complete, run these commands inside `fadp-sample/`:
+
+```bash
+# Install dependencies for the sample project
+npm install
+
+# Terminal 1 — start the FADP-gated API server
+node server.js
+
+# Terminal 2 — run the interactive paying agent
+node agent.js
+```
+
+The `.env` file inside `fadp-sample/` already has your keys pre-filled — it works out of the box.
+
+---
+
 ## Endpoints (all FADP-gated)
 
 | Endpoint | Cost | Description |
