@@ -22,6 +22,8 @@ git clone https://github.com/fluidbase9/fluid-agent-demo
 cd fluid-agent-demo
 npm install
 npx @fluidwallet/fadp-cli@latest
+node server/index.js &
+node agent/index.js
 ```
 
 The CLI will walk you through:
@@ -31,14 +33,6 @@ The CLI will walk you through:
 - Install agent skills into Codex / Cursor / Cline / etc.
 - Scaffold a `fadp-sample/` demo project
 - Open VS Code automatically
-
-**Run the demo — open two terminals**
-```bash
-node server/index.js   # terminal 1 — FADP-gated API server
-```
-```bash
-node agent/index.js    # terminal 2 — interactive paying agent
-```
 
 > **Tip:** Open a new terminal after the CLI finishes so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is in your environment.
 
