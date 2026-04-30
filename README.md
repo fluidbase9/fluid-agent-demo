@@ -17,32 +17,33 @@ Clone it, run the CLI, and see a real AI agent auto-pay for live crypto data.
 
 ## Quick start
 
-**Step 1 — Setup** *(run once — interactive CLI will walk you through everything)*
 ```bash
-# Clone the repo
+# 1. Clone the repo
 git clone https://github.com/fluidbase9/fluid-agent-demo
 
-# Enter the project folder
+# 2. Enter the project folder
 cd fluid-agent-demo
 
-# Install dependencies
+# 3. Install dependencies
 npm install
 
-# Run the setup CLI — creates your account, generates EC key + agent key, installs agent skills, scaffolds fadp-sample/
+# 4. Run the setup CLI
+#    → creates your developer account
+#    → generates FLDP EC key pair (shown once — save it)
+#    → generates FLUID_AGENT_KEY (fwag_...) — auto-exported to ~/.zshrc
+#    → select agent skills to install (Codex, Cursor, Cline, etc.)
+#    → choose installation scope: Project or Global
+#    → scaffolds fadp-sample/ with keys pre-filled
+#    → opens VS Code automatically
 npx @fluidwallet/fadp-cli@latest
-```
 
-**Step 2 — Run the demo** *(open two terminals after setup completes)*
-```bash
-# Terminal 1 — FADP-gated API server
+# 5. Open a new terminal (so ~/.zshrc is sourced and FLUID_AGENT_KEY is live)
+#    then start the FADP-gated API server
 node server/index.js
-```
-```bash
-# Terminal 2 — interactive paying agent
+
+# 6. Open another terminal tab and run the interactive paying agent
 node agent/index.js
 ```
-
-> **Tip:** Open a new terminal after the CLI finishes so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is in your environment.
 
 ## Endpoints (all FADP-gated)
 
