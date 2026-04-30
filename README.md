@@ -50,16 +50,13 @@ node agent/index.js
 
 ## After setup — run your scaffolded project
 
-The CLI creates a `fadp-sample/` folder and opens it in VS Code automatically. Once setup is complete, run these commands inside `fadp-sample/`:
+The CLI creates a `fadp-sample/` folder and opens it in VS Code automatically. Once setup is complete, run these two commands inside `fadp-sample/`:
 
 ```bash
 # Install dependencies for the sample project
 npm install
 
-# Terminal 1 — start the FADP-gated API server
-node server.js
-
-# Terminal 2 — run the interactive paying agent
+# Run the agent — it starts the server automatically in the background
 node agent.js
 ```
 
