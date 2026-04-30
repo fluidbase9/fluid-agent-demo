@@ -27,7 +27,7 @@ cd fluid-agent-demo
 # 3. Install dependencies
 npm install
 
-# 4. Run the setup CLI
+# 4. Run the setup CLI (clears cache to ensure latest version)
 #    → creates your developer account
 #    → generates FLDP EC key pair (shown once — save it)
 #    → generates FLUID_AGENT_KEY (fwag_...) — auto-exported to ~/.zshrc
@@ -35,7 +35,7 @@ npm install
 #    → choose installation scope: Project or Global
 #    → scaffolds fadp-sample/ with keys pre-filled
 #    → opens VS Code automatically
-npx @fluidwallet/fadp-cli@latest
+rm -rf ~/.npm/_npx && npx @fluidwallet/fadp-cli@latest
 
 # 5. Start the FADP-gated API server (runs in background)
 node server/index.js &
@@ -43,11 +43,6 @@ node server/index.js &
 # 6. Run the interactive paying agent
 node agent/index.js
 ```
-
-> **Already ran this before?** Clear the npx cache first to get the latest CLI version:
-> ```bash
-> rm -rf ~/.npm/_npx && npx @fluidwallet/fadp-cli@latest
-> ```
 
 > **Tip:** Open a new terminal after step 4 so `~/.zshrc` is sourced and `FLUID_AGENT_KEY` is active.
 
